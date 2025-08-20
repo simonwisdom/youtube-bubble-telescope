@@ -3,8 +3,5 @@
     "api/youtube-categories.js": {
       "maxDuration": 10
     }
-  },
-  "env": {
-    "YOUTUBE_API_KEY": "@youtube-api-key"
   }
 }

@@ -8,7 +8,7 @@ class YouTubeFilterBubbleTracker {
     this.RETENTION_DAYS = null; // No retention limit
     this.MAX_STORAGE_SIZE = 5 * 1024 * 1024; // 5MB
     this.API_BATCH_SIZE = 10;
-    this.API_ENDPOINT = 'https://your-app.vercel.app/api/youtube-categories'; // Replace with your Vercel URL
+    this.API_ENDPOINT = 'https://youtube-bubble-telescope.vercel.app/api/youtube-categories';
     
     this.init();
   }
