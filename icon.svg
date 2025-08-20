@@ -1,0 +1,19 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="56" fill="#FF0000" stroke="#CC0000" stroke-width="4"/>
+  
+  <!-- Chart/Analytics symbol -->
+  <g transform="translate(32, 32)">
+    <!-- Pie chart segments -->
+    <path d="M 32 8 A 24 24 0 0 1 50.4 20.8 L 32 32 Z" fill="#FFFFFF" opacity="0.9"/>
+    <path d="M 50.4 20.8 A 24 24 0 0 1 50.4 43.2 L 32 32 Z" fill="#FFFFFF" opacity="0.7"/>
+    <path d="M 50.4 43.2 A 24 24 0 0 1 32 56 L 32 32 Z" fill="#FFFFFF" opacity="0.5"/>
+    <path d="M 32 56 A 24 24 0 1 1 32 8 L 32 32 Z" fill="#FFFFFF" opacity="0.3"/>
+    
+    <!-- Center dot -->
+    <circle cx="32" cy="32" r="4" fill="#FF0000"/>
+  </g>
+  
+  <!-- YouTube play button indicator -->
+  <polygon points="48,52 48,76 72,64" fill="#FFFFFF" opacity="0.8"/>
+</svg>

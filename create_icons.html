@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icon Generator for YouTube Filter Bubble Tracker</title>
+</head>
+<body>
+    <h1>Generate Icons</h1>
+    <p>Use this page to generate PNG icons from the SVG. Open this file in a browser and use the download buttons.</p>
+    
+    <div id="icons"></div>
+    
+    <script>
+        const svgContent = `<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="64" cy="64" r="56" fill="#FF0000" stroke="#CC0000" stroke-width="4"/>
+          <g transform="translate(32, 32)">
+            <path d="M 32 8 A 24 24 0 0 1 50.4 20.8 L 32 32 Z" fill="#FFFFFF" opacity="0.9"/>
+            <path d="M 50.4 20.8 A 24 24 0 0 1 50.4 43.2 L 32 32 Z" fill="#FFFFFF" opacity="0.7"/>
+            <path d="M 50.4 43.2 A 24 24 0 0 1 32 56 L 32 32 Z" fill="#FFFFFF" opacity="0.5"/>
+            <path d="M 32 56 A 24 24 0 1 1 32 8 L 32 32 Z" fill="#FFFFFF" opacity="0.3"/>
+            <circle cx="32" cy="32" r="4" fill="#FF0000"/>
+          </g>
+          <polygon points="48,52 48,76 72,64" fill="#FFFFFF" opacity="0.8"/>
+        </svg>`;
+
+        function createIcon(size) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = size;
+            canvas.height = size;
+
+            const img = new Image();
+            const svg = new Blob([svgContent], {type: 'image/svg+xml'});
+            const url = URL.createObjectURL(svg);
+
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, size, size);
+                URL.revokeObjectURL(url);
+
+                canvas.toBlob(function(blob) {
+                    const link = document.createElement('a');
+                    link.download = `icon${size}.png`;
+                    link.href = URL.createObjectURL(blob);
+                    
+                    const container = document.createElement('div');
+                    container.style.margin = '10px';
+                    container.appendChild(canvas);
+                    container.appendChild(document.createElement('br'));
+                    container.appendChild(link);
+                    link.textContent = `Download icon${size}.png`;
+                    
+                    document.getElementById('icons').appendChild(container);
+                });
+            };
+
+            img.src = url;
+        }
+
+        // Create icons for different sizes
+        [16, 48, 128].forEach(createIcon);
+    </script>
+</body>
+</html>

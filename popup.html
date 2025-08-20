@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube Filter Bubble Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>YouTube Filter Bubble</h1>
+      <p class="subtitle">Track your recommendation patterns</p>
+    </header>
+
+    <main>
+      <!-- Loading State -->
+      <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Loading your data...</p>
+      </div>
+
+      <!-- No Data State -->
+      <div id="no-data" class="no-data hidden">
+        <div class="icon">📊</div>
+        <h3>No data yet</h3>
+        <p>Visit YouTube.com to start tracking your recommendations</p>
+        <p class="info">Categories are automatically classified using our API</p>
+      </div>
+
+      <!-- Analytics Dashboard -->
+      <div id="dashboard" class="dashboard hidden">
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" id="total-videos">0</div>
+            <div class="stat-label">Videos Tracked</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="diversity-score">0</div>
+            <div class="stat-label">Diversity Score</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="tracking-days">0</div>
+            <div class="stat-label">Days Tracked</div>
+          </div>
+        </div>
+
+        <!-- Category Distribution Chart -->
+        <div class="chart-section">
+          <h3>Category Distribution</h3>
+          <div class="chart-container">
+            <canvas id="category-chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Top Channels -->
+        <div class="top-channels-section">
+          <h3>Top Recommended Channels</h3>
+          <div id="top-channels-list" class="channels-list">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Date Range Info -->
+        <div class="date-range">
+          <span id="date-range-text">All tracked data</span>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <button id="export-btn" class="btn-secondary">Export Data</button>
+          <button id="refresh-btn" class="btn-primary">Refresh</button>
+        </div>
+      </div>
+
+    </main>
+
+    <footer>
+      <div class="footer-links">
+        <span>Powered by YouTube Data API</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

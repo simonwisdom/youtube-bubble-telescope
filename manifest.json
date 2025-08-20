@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Filter Bubble Tracker",
+  "version": "1.0.0",
+  "description": "Track and visualize what YouTube recommends to you over time",
+  
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content_script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube Filter Bubble Tracker"
+  },
+  
+  "icons": {
+    "16": "icon16.svg",
+    "48": "icon48.svg", 
+    "128": "icon128.svg"
+  },
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

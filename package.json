@@ -1,0 +1,25 @@
+{
+  "name": "youtube-bubble-telescope",
+  "version": "1.0.0",
+  "description": "Chrome extension that monitors and visualizes YouTube homepage recommendations to help users understand their personalized recommendation patterns",
+  "scripts": {
+    "build-extension": "zip -r youtube-bubble-telescope-extension.zip manifest.json background.js popup.html popup.js content_script.js styles.css chart.js *.png *.svg -x '*.DS_Store'",
+    "dev": "echo 'Load extension in Chrome: chrome://extensions/ -> Load unpacked -> Select this directory'"
+  },
+  "keywords": [
+    "youtube",
+    "recommendations",
+    "filter-bubble",
+    "chrome-extension",
+    "analytics"
+  ],
+  "author": "Simon Wisdom",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simonwisdom/youtube-bubble-telescope.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
